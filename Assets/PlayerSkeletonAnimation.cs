@@ -28,8 +28,8 @@ public class PlayerSkeletonAnimation : MonoBehaviour
     {
         Vector2 move = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.W)) move.y = 1;
-        if (Input.GetKey(KeyCode.S)) move.y = -1;
+        //if (Input.GetKey(KeyCode.W)) move.y = 1;
+        //if (Input.GetKey(KeyCode.S)) move.y = -1;
         if (Input.GetKey(KeyCode.A)) move.x = -1;
         if (Input.GetKey(KeyCode.D)) move.x = 1;
 
@@ -41,5 +41,7 @@ public class PlayerSkeletonAnimation : MonoBehaviour
 
         float speed = move.magnitude;
         State = speed > 0 ? StateType.walking : StateType.idle;
+
+        transform.Translate(move * Time.deltaTime);
     }
 }
